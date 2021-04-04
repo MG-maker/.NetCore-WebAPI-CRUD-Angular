@@ -1,0 +1,24 @@
+﻿.right {
+    margin-right: 10px;
+}
+.upp{
+    margin-top:10px;
+}
+.down{
+    margin-bottom:10px;
+}
+.input-size{
+    width:80.0%;
+}
+
+.border-create {
+    border-width: 4px;
+    border-style: outset;
+    border-color: antiquewhite;
+    width: 40.0%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.buttomSize{
+    width: 100px;
+}

@@ -1,0 +1,68 @@
+﻿<h1>Users List</h1>
+<input type="button" value="Add User" class="btn btn-sm btn-primary buttomSize" (click)="add()" />
+<table *ngIf="tableMode; else create" class="table table-striped ">
+    <thead>
+        <tr>
+            <td >Id</td>
+            <td>Name</td>
+            <td>Active</td>
+            <td>Update </td>
+            <td>Delete</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let u of users">
+            <ng-template [ngIf]="user?.id != u.id" [ngIfElse]="edit">
+                <td>{{u?.id}}</td>
+                <td>{{u?.name}}</td>
+                <td>
+                    <mat-checkbox [(ngModel)]="u.active" (change)="changeSelection(u)"></mat-checkbox>
+                </td>
+                <td width="140px">
+                    <button class="btn btn-sm btn-primary right buttomSize" (click)="editUser(u)">Update</button>
+                </td>
+                <td>
+                    <button class="btn btn-sm btn-danger buttomSize" (click)="delete(u)">Delete</button>
+                </td>
+            </ng-template>
+        </tr>
+    </tbody>
+</table>
+
+<div class="upp">
+    <button  class="btn btn-sm btn-warning buttomSize" (click)="openDialog()">Total</button>
+</div>
+
+<!--Edit Template-->
+<ng-template #edit>
+    <td>
+        <input type="text" [(ngModel)]="user.name" class="form-control" />
+    </td>
+    <td>
+         <td><mat-checkbox [(ngModel)]="user.active" ></mat-checkbox>
+    </td>
+    <td>
+        <input type="button" value="Save" (click)="save()" class="btn btn-sm padd btn-success right" />
+        <input type="button" value="Cancel" (click)="cancel()" class="btn btn-sm btn-warning" />
+    </td>
+</ng-template>
+
+<!--Add Template-->
+<ng-template #create>
+    <div class="border-create">
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" [(ngModel)]="user.name" class="form-control input-size" />
+        </div>
+        <p></p>
+        <div class="form-group">
+            <label class="right">Active</label>
+            <input type="checkbox" [(ngModel)]="user.active" class="padd" />
+        </div>
+        <p></p>
+        <div class="down">
+            <input type="button" value="Save" (click)="save()" class="btn padd btn-success right" />
+            <input type="button" value="Cancel" (click)="cancel()" class="btn btn-warning" />
+        </div>
+    </div>
+</ng-template>
