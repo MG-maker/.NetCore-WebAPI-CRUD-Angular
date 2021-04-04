@@ -1,4 +1,4 @@
-# .NetCore-WebAPI-CRUD-Angular
+# .NetCore-WebAPI-CRUD-Angular-Microsoft.AspNetCore.SpaServices.Extensions
 CRUD with UnitOfWork + Angular
 
 How to use:
